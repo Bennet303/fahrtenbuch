@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1007311681647",
+    "project_id": "fahrtenbuch-19d9d",
+    "storage_bucket": "fahrtenbuch-19d9d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007311681647:android:6cab2cd769b2ac5060759a",
+        "android_client_info": {
+          "package_name": "de.bennet.fahrtenbuch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007311681647-1p6sk903av1akuothetcoq77aqu6hofo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH-2kNQg8w_JTmVTRg0jG_FcPSGvsBbgs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007311681647-1p6sk903av1akuothetcoq77aqu6hofo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
