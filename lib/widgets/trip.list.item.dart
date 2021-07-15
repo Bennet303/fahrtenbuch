@@ -2,10 +2,10 @@ import 'package:fahrtenbuch/features/trips/domain/entities/trip.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 
-class FahrtWidget extends StatelessWidget {
+class TripListItem extends StatelessWidget {
   final Trip trip;
 
-  const FahrtWidget(this.trip);
+  const TripListItem(this.trip);
 
   @override
   Widget build(BuildContext context) {

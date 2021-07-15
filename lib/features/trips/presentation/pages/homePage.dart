@@ -1,6 +1,8 @@
 import 'package:fahrtenbuch/core/dependency.injector.dart';
+import 'package:fahrtenbuch/features/trips/domain/entities/trip.dart';
 import 'package:fahrtenbuch/features/trips/presentation/bloc/trips_bloc.dart';
-import 'package:fahrtenbuch/widgets/fahrtWidget.dart';
+import 'package:fahrtenbuch/features/trips/presentation/widgets/dismissible.trip.list.item.dart';
+import 'package:fahrtenbuch/widgets/trip.list.item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -53,7 +55,10 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildBodyLoaded(GettingTripsCompletedState state) {
     return ListView.separated(
-      itemBuilder: (context, index) => FahrtWidget(state.trips[index]),
+      itemBuilder: (context, index) {
+        final trip = state.trips[index];
+        return DismissibleTripListItem(trip: trip);
+      },
       separatorBuilder: (context, index) => Container(
         color: Colors.grey,
         height: 1.5,

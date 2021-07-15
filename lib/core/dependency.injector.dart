@@ -5,8 +5,8 @@ final injector = GetIt.instance;
 Future<void> init() async {
   ///* Feature: Trips
   //* Bloc
-  injector.registerFactory<TripsBloc>(
-      () => TripsBloc(addTrip: injector(), getTrips: injector()));
+  injector.registerFactory<TripsBloc>(() => TripsBloc(
+      addTrip: injector(), getTrips: injector(), deleteTrip: injector()));
 
   //* Use Cases
   injector.registerLazySingleton<GetTripsUsecase>(
