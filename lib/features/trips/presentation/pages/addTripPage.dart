@@ -6,6 +6,7 @@ import 'package:fahrtenbuch/features/trips/presentation/widgets/trip.input.field
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class AddTripPage extends StatefulWidget {
@@ -34,7 +35,7 @@ class _AddTripPageState extends State<AddTripPage> {
 }
 
 class FahrtDialog extends StatelessWidget {
-  final TextEditingController kmAbsoulteController = TextEditingController();
+  final TextEditingController kmAbsoluteController = TextEditingController();
   final TextEditingController kmTripController = TextEditingController();
   final TextEditingController dateController = TextEditingController(
     text: DateTime.now().toString(),
@@ -74,7 +75,7 @@ class FahrtDialog extends StatelessWidget {
             TripInputField(
               icon: Icons.directions_car,
               hint: "Kilometerstand",
-              controller: kmAbsoulteController,
+              controller: kmAbsoluteController,
               validator: (val) {
                 if (val == null || val.isEmpty)
                   return "Bitte einen Wert eintragen";
@@ -124,8 +125,12 @@ class FahrtDialog extends StatelessWidget {
   void submit(BuildContext context) {
     if (_formKey.currentState!.validate()) {
       Trip trip = Trip(
-        kmAbsolute: int.tryParse(kmAbsoulteController.value.text),
-        kmTrip: double.tryParse(kmTripController.value.text),
+        kmAbsolute: NumberFormat.decimalPattern('de_DE')
+            .parse(kmAbsoluteController.value.text.trim())
+            .toInt(),
+        kmTrip: NumberFormat.decimalPattern('de_DE')
+            .parse(kmTripController.value.text.trim())
+            .toDouble(),
         dateAndTime: DateTime.tryParse(dateController.value.text),
       );
       BlocProvider.of<TripsBloc>(context).add(AddTrip(trip));

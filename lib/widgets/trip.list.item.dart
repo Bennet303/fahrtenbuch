@@ -21,7 +21,7 @@ class TripListItem extends StatelessWidget {
           SizedBox(
             height: 2,
           ),
-          Text(DateFormat('hh:mm').format(trip.dateAndTime!)),
+          Text(DateFormat('HH:mm').format(trip.dateAndTime!)),
           Text("Fahrt: ${trip.kmTrip} km"),
           Text("Kilometerstand: ${trip.kmAbsolute} km")
         ],
