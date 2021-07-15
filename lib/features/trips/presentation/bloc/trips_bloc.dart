@@ -27,6 +27,7 @@ class TripsBloc extends Bloc<TripsEvent, TripsState> {
         (failure) => AddingTripFailedState(),
         (success) => AddingTripCompletedState(),
       );
+      this.add(GetTrips());
       return;
     }
 
@@ -35,7 +36,10 @@ class TripsBloc extends Bloc<TripsEvent, TripsState> {
       final res = await getTrips();
       yield res.fold(
         (failure) => GettingTripsFailedState(),
-        (trips) => GettingTripsCompletedState(trips),
+        (trips) {
+          trips.sort((a, b) => (b.dateAndTime!).compareTo(a.dateAndTime!));
+          return GettingTripsCompletedState(trips);
+        },
       );
     }
 
@@ -46,6 +50,7 @@ class TripsBloc extends Bloc<TripsEvent, TripsState> {
         (failure) => DeletingTripFailedState(),
         (success) => DeletingTripCompletedState(),
       );
+      this.add(GetTrips());
     }
   }
 }
