@@ -1,10 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
-
-import 'package:fahrtenbuch/models/tripModel.dart';
+import 'package:fahrtenbuch/features/trips/domain/entities/trip.dart';
 import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/services.dart' show ByteData, rootBundle;
 import 'package:path_provider/path_provider.dart';
 
 class TripService {
@@ -20,24 +19,32 @@ class TripService {
 
   factory TripService() => _instance;
 
-  TripService._internal() {}
+  TripService._internal();
 
-  Future<TripModel> readImage() async {
-    final File imageFile = await getImageFileFromAssets("20191220_161131.jpg");
-    final FirebaseVisionImage visionImage =
-        FirebaseVisionImage.fromFile(imageFile);
-    final TextRecognizer textRecognizer =
-        FirebaseVision.instance.textRecognizer();
-    final VisionText visionText =
-        await textRecognizer.processImage(visionImage);
-    String text = visionText.text;
+  Future<List<Trip>> getTrips() async {
+    return <Trip>[
+      //Trip(DateTime.now(), 250.4, 100000),
+      //Trip(DateTime.now(), 250.4, 100000),
+      //Trip(DateTime.now(), 250.4, 100000)
+    ];
+  }
+
+  Future<Trip> readImage() async {
+    // final File imageFile = await getImageFileFromAssets("20191220_161131.jpg");
+    // final FirebaseVisionImage visionImage =
+    //     FirebaseVisionImage.fromFile(imageFile);
+    // final TextRecognizer textRecognizer =
+    //     FirebaseVision.instance.textRecognizer();
+    // final VisionText visionText =
+    //     await textRecognizer.processImage(visionImage);
+    String text = ""; //visionText.text;
     LineSplitter splitter = new LineSplitter();
     List<String> lines = splitter.convert(text);
 
-    String date;
-    String time;
-    String trip;
-    String km;
+    String date = "";
+    String time = "";
+    String trip = "";
+    String km = "";
 
     lines.forEach((element) {
       date = dateRegEx.stringMatch(element) ?? date;
@@ -48,7 +55,10 @@ class TripService {
 
     date.replaceAll(new RegExp(r'.'), '-');
     DateTime dateTime = DateFormat('dd.MM.yyyy HH:mm').parse(date + " " + time);
-    return new TripModel(dateTime, double.tryParse(trip), int.tryParse(km));
+    return new Trip(
+        dateAndTime: dateTime,
+        kmTrip: double.tryParse(trip)!,
+        kmAbsolute: int.tryParse(km)!);
   }
 
   Future<File> getImageFileFromAssets(String path) async {
@@ -61,7 +71,7 @@ class TripService {
     return file;
   }
 
-  Future<Null> myGetByte() async {
+  Future<ByteData> myGetByte() async {
     final _byteData = await rootBundle.load('assets/');
     return _byteData;
   }

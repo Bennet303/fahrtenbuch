@@ -1,6 +1,12 @@
+import 'package:fahrtenbuch/features/trips/domain/entities/trip.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:intl/intl.dart';
 
 class FahrtWidget extends StatelessWidget {
+  final Trip trip;
+
+  const FahrtWidget(this.trip);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -9,15 +15,15 @@ class FahrtWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "02.12.2019",
+            DateFormat('dd.MM.yyyy').format(trip.dateAndTime!),
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
           ),
           SizedBox(
             height: 2,
           ),
-          Text("19:38"),
-          Text("Fahrt: 556,3 km"),
-          Text("Kilometerstand: 10035,5 km")
+          Text(DateFormat('hh:mm').format(trip.dateAndTime!)),
+          Text("Fahrt: ${trip.kmTrip} km"),
+          Text("Kilometerstand: ${trip.kmAbsolute} km")
         ],
       ),
     );

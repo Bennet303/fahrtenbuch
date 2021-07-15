@@ -1,15 +1,15 @@
 import 'package:flutter/widgets.dart';
 
 class DrawHorizontalLine extends CustomPainter {
-  Paint _paint;
+  Paint? _paint;
   double length;
   Alignment alignment;
 
   DrawHorizontalLine(BuildContext context,
-      {@required double strokeWidth,
-      @required StrokeCap strokeCap,
-      @required Color color,
-      @required this.length,
+      {required double strokeWidth,
+      required StrokeCap strokeCap,
+      required Color color,
+      required this.length,
       this.alignment = Alignment.center}) {
     _paint = Paint()
       ..color = color
@@ -22,13 +22,13 @@ class DrawHorizontalLine extends CustomPainter {
     if (alignment.x == 0.0) {
       // center
       canvas.drawLine(
-          Offset(-length / 2, 0.0), Offset(length / 2, 0.0), _paint);
+          Offset(-length / 2, 0.0), Offset(length / 2, 0.0), _paint!);
     } else if (alignment.x == -1) {
       // left
-      canvas.drawLine(Offset(0.0, 0.0), Offset(length, 0.0), _paint);
+      canvas.drawLine(Offset(0.0, 0.0), Offset(length, 0.0), _paint!);
     } else {
       // right
-      canvas.drawLine(Offset(-length, 0.0), Offset(0.0, 0.0), _paint);
+      canvas.drawLine(Offset(-length, 0.0), Offset(0.0, 0.0), _paint!);
     }
   }
 
