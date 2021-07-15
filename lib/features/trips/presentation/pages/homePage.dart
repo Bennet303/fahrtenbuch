@@ -62,7 +62,6 @@ class _HomePageState extends State<HomePage> {
       separatorBuilder: (context, index) => Container(
         color: Colors.grey,
         height: 1.5,
-        margin: EdgeInsets.symmetric(horizontal: 15),
       ),
       itemCount: state.trips.length,
     );

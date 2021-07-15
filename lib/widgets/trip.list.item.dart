@@ -9,6 +9,7 @@ class TripListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final numberFormat = NumberFormat.decimalPattern("de_DE");
     return Container(
       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
       child: Column(
@@ -22,8 +23,8 @@ class TripListItem extends StatelessWidget {
             height: 2,
           ),
           Text(DateFormat('HH:mm').format(trip.dateAndTime!)),
-          Text("Fahrt: ${trip.kmTrip} km"),
-          Text("Kilometerstand: ${trip.kmAbsolute} km")
+          Text("Fahrt: ${numberFormat.format(trip.kmTrip)} km"),
+          Text("Kilometerstand: ${numberFormat.format(trip.kmAbsolute)} km")
         ],
       ),
     );
