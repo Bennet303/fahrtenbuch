@@ -2,7 +2,9 @@ package io.flutter.plugins;
 
 import io.flutter.plugin.common.PluginRegistry;
 import io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin;
-import io.flutter.plugins.firebasemlvision.FirebaseMlVisionPlugin;
+import io.flutter.plugins.flutter_plugin_android_lifecycle.FlutterAndroidLifecyclePlugin;
+import com.b.biradar.google_ml_kit.GoogleMlKitPlugin;
+import io.flutter.plugins.imagepicker.ImagePickerPlugin;
 import io.flutter.plugins.pathprovider.PathProviderPlugin;
 
 /**
@@ -14,7 +16,9 @@ public final class GeneratedPluginRegistrant {
       return;
     }
     FlutterFirebaseCorePlugin.registerWith(registry.registrarFor("io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin"));
-    FirebaseMlVisionPlugin.registerWith(registry.registrarFor("io.flutter.plugins.firebasemlvision.FirebaseMlVisionPlugin"));
+    FlutterAndroidLifecyclePlugin.registerWith(registry.registrarFor("io.flutter.plugins.flutter_plugin_android_lifecycle.FlutterAndroidLifecyclePlugin"));
+    GoogleMlKitPlugin.registerWith(registry.registrarFor("com.b.biradar.google_ml_kit.GoogleMlKitPlugin"));
+    ImagePickerPlugin.registerWith(registry.registrarFor("io.flutter.plugins.imagepicker.ImagePickerPlugin"));
     PathProviderPlugin.registerWith(registry.registrarFor("io.flutter.plugins.pathprovider.PathProviderPlugin"));
   }
 

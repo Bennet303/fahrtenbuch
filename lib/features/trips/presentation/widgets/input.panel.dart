@@ -1,6 +1,9 @@
+import 'package:fahrtenbuch/core/dependency.injector.dart';
+import 'package:fahrtenbuch/features/trips/presentation/bloc/bloc.dart';
 import 'package:fahrtenbuch/widgets/draggable.indicator.dart';
 import 'package:fahrtenbuch/widgets/generation.option.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class InputPanel extends StatelessWidget {
   const InputPanel({
@@ -12,12 +15,12 @@ class InputPanel extends StatelessWidget {
     return Column(
       children: [
         DraggableIndicator(),
-        buildPanelBody(),
+        buildPanelBody(context),
       ],
     );
   }
 
-  Widget buildPanelBody() {
+  Widget buildPanelBody(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 10.0),
       child: Column(
@@ -31,8 +34,22 @@ class InputPanel extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                GenerationOption(Icons.camera_alt, "Aufnehmen", () => {}),
-                GenerationOption(Icons.photo_library, "Auswählen", () => {}),
+                GenerationOption(
+                  Icons.camera_alt,
+                  "Aufnehmen",
+                  () => {
+                    BlocProvider.of<PictureBloc>(context)
+                        .add(GetTripFromCamera())
+                  },
+                ),
+                GenerationOption(
+                  Icons.photo_library,
+                  "Auswählen",
+                  () => {
+                    BlocProvider.of<PictureBloc>(context)
+                        .add(GetTripFromGallery())
+                  },
+                ),
               ],
             ),
           )

@@ -8,18 +8,21 @@ class GenerationOption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Icon(
-          this.iconData,
-          color: Color.fromARGB(255, 68, 180, 109),
-          size: 60,
-        ),
-        Text(
-          this.text,
-          style: TextStyle(fontSize: 16),
-        )
-      ],
+    return TextButton(
+      onPressed: onClick,
+      child: Column(
+        children: [
+          Icon(
+            this.iconData,
+            color: Color.fromARGB(255, 68, 180, 109),
+            size: 60,
+          ),
+          Text(
+            this.text,
+            style: TextStyle(fontSize: 16),
+          )
+        ],
+      ),
     );
   }
 }

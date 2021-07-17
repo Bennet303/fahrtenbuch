@@ -1,8 +1,5 @@
-import 'package:fahrtenbuch/core/dependency.injector.dart';
-import 'package:fahrtenbuch/features/trips/domain/entities/trip.dart';
-import 'package:fahrtenbuch/features/trips/presentation/bloc/trips_bloc.dart';
+import 'package:fahrtenbuch/features/trips/presentation/bloc/bloc.dart';
 import 'package:fahrtenbuch/features/trips/presentation/widgets/dismissible.trip.list.item.dart';
-import 'package:fahrtenbuch/widgets/trip.list.item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
