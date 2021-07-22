@@ -103,6 +103,7 @@ output.json
 .packages
 .pub-cache/
 .pub/
+.flutter-plugins-dependencies
 
 # Android related
 **/android/**/gradle-wrapper.jar
