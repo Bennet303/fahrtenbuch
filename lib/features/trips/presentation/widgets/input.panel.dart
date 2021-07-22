@@ -1,4 +1,3 @@
-import 'package:fahrtenbuch/core/dependency.injector.dart';
 import 'package:fahrtenbuch/features/trips/presentation/bloc/bloc.dart';
 import 'package:fahrtenbuch/widgets/draggable.indicator.dart';
 import 'package:fahrtenbuch/widgets/generation.option.dart';

@@ -1,12 +1,11 @@
-import 'package:fahrtenbuch/features/trips/data/data.dart';
 import 'package:fahrtenbuch/features/trips/domain/entities/trip.dart';
 import 'package:hive/hive.dart';
-import 'package:uuid/uuid.dart';
 part 'trip.model.g.dart';
 
 @HiveType(typeId: 0)
+//ignore: must_be_immutable
 class TripHiveModel extends Trip {
-  TripHiveModel() {}
+  TripHiveModel();
 
   factory TripHiveModel.fromTrip(Trip trip) {
     return TripHiveModel()

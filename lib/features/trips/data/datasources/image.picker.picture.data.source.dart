@@ -12,17 +12,17 @@ class ImagePickerPictureDataSource extends PictureDataSource {
 
   @override
   Future<File> choosePictureFromGallery() async {
-    final pickedFile = await _picker.getImage(source: ImageSource.gallery);
+    final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
     return _convertPickedFileToFile(pickedFile!);
   }
 
   @override
   Future<File> takePicture() async {
-    final pickedFile = await _picker.getImage(source: ImageSource.camera);
+    final pickedFile = await _picker.pickImage(source: ImageSource.camera);
     return _convertPickedFileToFile(pickedFile!);
   }
 
-  File _convertPickedFileToFile(PickedFile pickedFile) {
+  File _convertPickedFileToFile(XFile pickedFile) {
     return File(pickedFile.path);
   }
 }
