@@ -3,9 +3,9 @@ import 'package:uuid/uuid.dart';
 
 class Trip extends Equatable {
   late final String id;
-  final DateTime? dateAndTime;
-  final double? kmTrip;
-  final int? kmAbsolute;
+  late final DateTime? dateAndTime;
+  late final double? kmTrip;
+  late final int? kmAbsolute;
 
   Trip({this.dateAndTime, this.kmTrip, this.kmAbsolute}) {
     id = Uuid().v1();

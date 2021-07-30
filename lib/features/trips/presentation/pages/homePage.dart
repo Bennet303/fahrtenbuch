@@ -1,3 +1,4 @@
+import 'package:fahrtenbuch/features/export/presentation/widgets/export.button.dart';
 import 'package:fahrtenbuch/features/trips/presentation/bloc/bloc.dart';
 import 'package:fahrtenbuch/features/trips/presentation/widgets/dismissible.trip.list.item.dart';
 import 'package:flutter/material.dart';
@@ -87,6 +88,7 @@ class _HomePageState extends State<HomePage> {
       centerTitle: true,
       title: Text(widget.title, style: TextStyle(color: Colors.black)),
       backgroundColor: Colors.white,
+      actions: [ExportButton()],
     );
   }
 

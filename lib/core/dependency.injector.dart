@@ -1,3 +1,4 @@
+import 'package:fahrtenbuch/features/export/export.feature.init.dart';
 import 'package:fahrtenbuch/features/trips/data/datasources/firebase.ocr.data.source.dart';
 import 'package:fahrtenbuch/features/trips/data/datasources/image.picker.picture.data.source.dart';
 import 'package:fahrtenbuch/features/trips/data/datasources/ocr.data.source.dart';
@@ -8,6 +9,10 @@ import 'package:get_it/get_it.dart';
 
 final injector = GetIt.instance;
 Future<void> init() async {
+  exportFeatureInit();
+  //TODO: split up into Feature inits
+  //TODO: add export feature
+
   ///* Feature: Picture
   //* Bloc
   injector.registerFactory<PictureBloc>(
