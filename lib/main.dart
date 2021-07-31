@@ -36,7 +36,7 @@ class Application extends StatelessWidget {
         ],
         title: 'Fahrtenbuch',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.green,
         ),
         home: HomePage(title: 'Fahrtenbuch'),
       ),
