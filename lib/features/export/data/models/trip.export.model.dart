@@ -1,19 +1,24 @@
 import 'package:fahrtenbuch/features/trips/domain/entities/trip.dart';
+import 'package:intl/intl.dart';
 
 class TripExportModel extends Trip {
-  TripExportModel();
+  TripExportModel(DateTime dateTime, String id, int kmAbsolute, double kmTrip) {
+    this.dateAndTime = dateTime;
+    this.id = id;
+    this.kmAbsolute = kmAbsolute;
+    this.kmTrip = kmTrip;
+  }
 
   factory TripExportModel.fromTrip(Trip trip) {
-    return TripExportModel()
-      ..dateAndTime = trip.dateAndTime
-      ..id = trip.id
-      ..kmAbsolute = trip.kmAbsolute
-      ..kmTrip = trip.kmTrip;
+    final res = new TripExportModel(
+        trip.dateAndTime!, trip.id, trip.kmAbsolute!, trip.kmTrip!);
+    return res;
   }
 
   List<dynamic> toCSV() {
     return [
-      this.dateAndTime,
+      DateFormat('dd.MM.yyyy').format(this.dateAndTime!),
+      DateFormat('HH:mm').format(this.dateAndTime!),
       this.kmTrip,
       this.kmAbsolute,
     ];

@@ -9,6 +9,13 @@ class CsvExportDataSource extends ExportDataSource {
   @override
   Future<void> export(String path, List<TripExportModel> trips) async {
     List<List<dynamic>> tripExport = trips.map((trip) => trip.toCSV()).toList();
+    List<dynamic> header = [
+      'Datum',
+      'Uhrzeit',
+      'Fahrtkilometer',
+      'Kilometer gesamt'
+    ];
+    tripExport.insert(0, header);
     String csv = const ListToCsvConverter().convert(tripExport);
     final directory = await getExternalStorageDirectory();
 
@@ -16,7 +23,7 @@ class CsvExportDataSource extends ExportDataSource {
       throw Exception('No export directory provided');
     }
 
-    final String exportPath = directory.path + '/' + path;
+    final String exportPath = directory.path + '/' + path + '.csv';
     File file = File(exportPath);
     file.writeAsString(csv);
   }
