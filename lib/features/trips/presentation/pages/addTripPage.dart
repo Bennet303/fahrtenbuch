@@ -29,6 +29,7 @@ class _AddTripPageState extends State<AddTripPage> {
         child: SlidingUpPanel(
           minHeight: 40,
           maxHeight: 300,
+          defaultPanelState: PanelState.OPEN,
           borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
           panel: InputPanel(),
           body: FahrtDialog(),
