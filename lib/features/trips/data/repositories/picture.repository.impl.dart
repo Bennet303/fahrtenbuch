@@ -45,10 +45,14 @@ class PictureRepositoryImpl extends PictureRepository {
     }
   }
 
-  Future<String> _getLocation(File image) async {
-    final coords = await imageMetadataDatasource.getCoordinates(image);
-    final location = await locationDatasource.getLocationName(coords);
-    return location;
+  Future<String?> _getLocation(File image) async {
+    try {
+      final coords = await imageMetadataDatasource.getCoordinates(image);
+      final location = await locationDatasource.getLocationName(coords);
+      return location;
+    } catch (e) {
+      return null;
+    }
   }
 
   Future<Trip> _getTripFromImage(File image) async {

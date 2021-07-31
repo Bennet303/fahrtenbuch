@@ -10,6 +10,10 @@ class ExifDatasource extends ImageMetadataDatasource {
     Map<String, IfdTag> data = await readExifFromFile(imageFile);
 
     if (data.isEmpty) throw Exception('No EXIF data found in image file');
+
+    if (data['GPS GPSLatitude'] == null)
+      throw Exception('No GPS data found in image file');
+
     return _exifGPSToCooridnateModel(data);
   }
 
