@@ -2,7 +2,8 @@ import 'package:fahrtenbuch/features/trips/domain/entities/trip.dart';
 import 'package:intl/intl.dart';
 
 class TripExportModel extends Trip {
-  TripExportModel(DateTime dateTime, String id, int kmAbsolute, double kmTrip) {
+  TripExportModel(DateTime dateTime, String id, int kmAbsolute, double kmTrip,
+      String location) {
     this.dateAndTime = dateTime;
     this.id = id;
     this.kmAbsolute = kmAbsolute;
@@ -11,8 +12,8 @@ class TripExportModel extends Trip {
   }
 
   factory TripExportModel.fromTrip(Trip trip) {
-    final res = new TripExportModel(
-        trip.dateAndTime!, trip.id, trip.kmAbsolute!, trip.kmTrip!);
+    final res = new TripExportModel(trip.dateAndTime!, trip.id,
+        trip.kmAbsolute!, trip.kmTrip!, trip.location!);
     return res;
   }
 

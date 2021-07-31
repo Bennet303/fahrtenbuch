@@ -77,9 +77,12 @@ class _FahrtDialogState extends State<FahrtDialog> {
               this.dateController = TextEditingController(
                   text: state.trip.dateAndTime.toString());
             });
-            //TODO: clean up
-            // String newDateString = state.trip.dateAndTime.toString();
-            // dateController.text = newDateString;
+          }
+
+          if (state.trip.location != null) {
+            setState(() {
+              this.locationController.text = state.trip.location!;
+            });
           }
         }
       },
