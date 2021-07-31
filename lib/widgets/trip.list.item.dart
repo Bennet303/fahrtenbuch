@@ -1,5 +1,6 @@
 import 'package:fahrtenbuch/features/trips/domain/entities/trip.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class TripListItem extends StatelessWidget {
@@ -24,9 +25,14 @@ class TripListItem extends StatelessWidget {
           ),
           Text(DateFormat('HH:mm').format(trip.dateAndTime!)),
           Text("Fahrt: ${numberFormat.format(trip.kmTrip)} km"),
-          Text("Kilometerstand: ${numberFormat.format(trip.kmAbsolute)} km")
+          Text("Kilometerstand: ${numberFormat.format(trip.kmAbsolute)} km"),
+          _buildLocationText(trip)
         ],
       ),
     );
+  }
+
+  Widget _buildLocationText(Trip trip) {
+    return trip.location != null ? Text("Ort: ${trip.location!}") : Container();
   }
 }

@@ -6,6 +6,7 @@ class TripInputField extends StatelessWidget {
   final String hint;
   final TextEditingController controller;
   final String? Function(String?)? validator;
+  final String? postfix; // e.g. "km"
 
   const TripInputField({
     Key? key,
@@ -13,6 +14,7 @@ class TripInputField extends StatelessWidget {
     required this.hint,
     required this.controller,
     required this.validator,
+    this.postfix,
   }) : super(key: key);
 
   @override
@@ -40,7 +42,7 @@ class TripInputField extends StatelessWidget {
           Flexible(
             flex: 2,
             child: Text(
-              "km",
+              this.postfix ?? "",
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,

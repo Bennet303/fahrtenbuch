@@ -13,7 +13,8 @@ class CsvExportDataSource extends ExportDataSource {
       'Datum',
       'Uhrzeit',
       'Fahrtkilometer',
-      'Kilometer gesamt'
+      'Kilometer gesamt',
+      'Ort'
     ];
     tripExport.insert(0, header);
     String csv = const ListToCsvConverter().convert(tripExport);

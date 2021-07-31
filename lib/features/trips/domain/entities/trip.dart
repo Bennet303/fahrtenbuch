@@ -6,8 +6,9 @@ class Trip extends Equatable {
   DateTime? dateAndTime;
   double? kmTrip;
   int? kmAbsolute;
+  String? location;
 
-  Trip({this.dateAndTime, this.kmTrip, this.kmAbsolute}) {
+  Trip({this.dateAndTime, this.kmTrip, this.kmAbsolute, this.location}) {
     id = Uuid().v1();
   }
 

@@ -52,6 +52,8 @@ class _FahrtDialogState extends State<FahrtDialog> {
 
   final TextEditingController kmTripController = TextEditingController();
 
+  final TextEditingController locationController = TextEditingController();
+
   TextEditingController dateController =
       TextEditingController(text: DateTime.now().toString());
 
@@ -75,6 +77,7 @@ class _FahrtDialogState extends State<FahrtDialog> {
               this.dateController = TextEditingController(
                   text: state.trip.dateAndTime.toString());
             });
+            //TODO: clean up
             // String newDateString = state.trip.dateAndTime.toString();
             // dateController.text = newDateString;
           }
@@ -96,6 +99,7 @@ class _FahrtDialogState extends State<FahrtDialog> {
               TripInputField(
                 icon: Icons.location_on,
                 hint: "Fahrtkilometer",
+                postfix: 'km',
                 controller: kmTripController,
                 validator: (val) {
                   if (val == null || val.isEmpty)
@@ -106,7 +110,18 @@ class _FahrtDialogState extends State<FahrtDialog> {
               TripInputField(
                 icon: Icons.directions_car,
                 hint: "Kilometerstand",
+                postfix: 'km',
                 controller: kmAbsoluteController,
+                validator: (val) {
+                  if (val == null || val.isEmpty)
+                    return "Bitte einen Wert eintragen";
+                  return null;
+                },
+              ),
+              TripInputField(
+                icon: Icons.location_city,
+                hint: "Ort",
+                controller: locationController,
                 validator: (val) {
                   if (val == null || val.isEmpty)
                     return "Bitte einen Wert eintragen";
@@ -164,6 +179,7 @@ class _FahrtDialogState extends State<FahrtDialog> {
             .parse(kmTripController.value.text.trim())
             .toDouble(),
         dateAndTime: DateTime.tryParse(dateController.value.text),
+        location: locationController.value.text.trim(),
       );
       BlocProvider.of<TripsBloc>(context).add(AddTrip(trip));
       Navigator.of(context).pop();

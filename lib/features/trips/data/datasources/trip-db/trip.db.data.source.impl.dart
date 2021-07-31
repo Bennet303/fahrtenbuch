@@ -1,4 +1,4 @@
-import 'package:fahrtenbuch/features/trips/data/datasources/trip.db.data.source.dart';
+import 'package:fahrtenbuch/features/trips/data/datasources/trip-db/trip.db.data.source.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:fahrtenbuch/features/trips/data/models/trip.model.dart';
 

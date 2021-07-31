@@ -6,6 +6,7 @@ class TripExportModel extends Trip {
     this.dateAndTime = dateTime;
     this.id = id;
     this.kmAbsolute = kmAbsolute;
+    this.location = location;
     this.kmTrip = kmTrip;
   }
 
@@ -21,6 +22,7 @@ class TripExportModel extends Trip {
       DateFormat('HH:mm').format(this.dateAndTime!),
       this.kmTrip,
       this.kmAbsolute,
+      this.location,
     ];
   }
 }

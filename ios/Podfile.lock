@@ -1,4 +1,6 @@
 PODS:
+  - downloads_path_provider (0.0.1):
+    - Flutter
   - Firebase/CoreOnly (8.3.0):
     - FirebaseCore (= 8.3.0)
   - firebase_core (1.4.0):
@@ -14,6 +16,8 @@ PODS:
     - GoogleUtilities/Logger (~> 7.4)
     - nanopb (~> 2.30908.0)
   - Flutter (1.0.0)
+  - geocoding (1.0.5):
+    - Flutter
   - google_ml_kit (0.6.0):
     - Flutter
     - GoogleMLKit/BarcodeScanning
@@ -156,8 +160,10 @@ PODS:
   - SSZipArchive (2.4.2)
 
 DEPENDENCIES:
+  - downloads_path_provider (from `.symlinks/plugins/downloads_path_provider/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `Flutter`)
+  - geocoding (from `.symlinks/plugins/geocoding/ios`)
   - google_ml_kit (from `.symlinks/plugins/google_ml_kit/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
@@ -196,10 +202,14 @@ SPEC REPOS:
     - SSZipArchive
 
 EXTERNAL SOURCES:
+  downloads_path_provider:
+    :path: ".symlinks/plugins/downloads_path_provider/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
   Flutter:
     :path: Flutter
+  geocoding:
+    :path: ".symlinks/plugins/geocoding/ios"
   google_ml_kit:
     :path: ".symlinks/plugins/google_ml_kit/ios"
   image_picker:
@@ -208,11 +218,13 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/path_provider/ios"
 
 SPEC CHECKSUMS:
+  downloads_path_provider: fe0d06888d4b8c055a59edbc2f51f03e63cb0e28
   Firebase: 817b9171d0d51dccc458b94a5e8edff6b1dd323d
   firebase_core: 72374607c8c6f5a0adc0559e5c5bf57deda975e3
   FirebaseCore: a6dba751680d7033b9d3831e1cfc95ead0605118
   FirebaseCoreDiagnostics: cad03be1904b975f845e632f2720c3337da27faf
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  geocoding: 32cfcdb16d38d907caaba65e2e42ad10d38bee58
   google_ml_kit: 3e25499de151048da453504d2b676cfd1c6c6bd0
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
   GoogleMLKit: 85ffdc9641d05311c76dbba5bbf93059087be12f
