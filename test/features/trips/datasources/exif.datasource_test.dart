@@ -11,7 +11,7 @@ main() {
 
   setUp(() {
     exifDatasource = new ExifDatasource();
-    tImageFile = File('assets/20191202_074008.jpg');
+    tImageFile = File('test/assets/20191202_074008.jpg');
   });
 
   test('should get the correct coordinates from provided image', () async {
