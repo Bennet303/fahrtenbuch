@@ -1,4 +1,4 @@
-import 'package:fahrtenbuch/widgets/inputWidget.dart';
+import 'package:fahrtenbuch/features/trips/presentation/widgets/inputWidget.dart';
 import 'package:flutter/material.dart';
 
 class TripInputField extends StatelessWidget {
