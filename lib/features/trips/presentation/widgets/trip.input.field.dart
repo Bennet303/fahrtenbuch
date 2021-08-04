@@ -7,6 +7,7 @@ class TripInputField extends StatelessWidget {
   final TextEditingController controller;
   final String? Function(String?)? validator;
   final String? postfix; // e.g. "km"
+  final TextInputType textInputType;
 
   const TripInputField({
     Key? key,
@@ -14,6 +15,7 @@ class TripInputField extends StatelessWidget {
     required this.hint,
     required this.controller,
     required this.validator,
+    required this.textInputType,
     this.postfix,
   }) : super(key: key);
 
@@ -29,7 +31,7 @@ class TripInputField extends StatelessWidget {
             child: InputWidget(
               this.icon,
               TextFormField(
-                keyboardType: TextInputType.number,
+                keyboardType: this.textInputType,
                 decoration: InputDecoration(hintText: this.hint),
                 validator: validator,
                 controller: controller,

@@ -105,6 +105,7 @@ class _FahrtDialogState extends State<FahrtDialog> {
                 hint: "Fahrtkilometer",
                 postfix: 'km',
                 controller: kmTripController,
+                textInputType: TextInputType.number,
                 validator: (val) {
                   if (val == null || val.isEmpty)
                     return "Bitte einen Wert eintragen";
@@ -116,6 +117,7 @@ class _FahrtDialogState extends State<FahrtDialog> {
                 hint: "Kilometerstand",
                 postfix: 'km',
                 controller: kmAbsoluteController,
+                textInputType: TextInputType.number,
                 validator: (val) {
                   if (val == null || val.isEmpty)
                     return "Bitte einen Wert eintragen";
@@ -126,6 +128,7 @@ class _FahrtDialogState extends State<FahrtDialog> {
                 icon: Icons.location_city,
                 hint: "Ort",
                 controller: locationController,
+                textInputType: TextInputType.text,
                 validator: (val) {
                   if (val == null || val.isEmpty)
                     return "Bitte einen Wert eintragen";
