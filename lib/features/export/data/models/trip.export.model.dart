@@ -21,9 +21,9 @@ class TripExportModel extends Trip {
     return [
       DateFormat('dd.MM.yyyy').format(this.dateAndTime!),
       DateFormat('HH:mm').format(this.dateAndTime!),
-      this.kmTrip,
       this.kmAbsolute,
-      this.location,
+      NumberFormat.decimalPattern('de_DE').format(this.kmTrip),
+      this.location ?? "",
     ];
   }
 }

@@ -12,12 +12,13 @@ class CsvExportDataSource extends ExportDataSource {
     List<dynamic> header = [
       'Datum',
       'Uhrzeit',
-      'Fahrtkilometer',
-      'Kilometer gesamt',
+      'Kilometerstand',
+      'Tageskilometer',
       'Ort'
     ];
     tripExport.insert(0, header);
-    String csv = const ListToCsvConverter().convert(tripExport);
+    String csv =
+        const ListToCsvConverter(fieldDelimiter: ';').convert(tripExport);
     final directory = await getExternalStorageDirectory();
 
     if (directory == null) {
