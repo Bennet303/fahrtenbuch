@@ -48,7 +48,7 @@ jobs:
         tar xvf $HOME/private/services.tar
         flutter build apk --split-per-abi
       env:
-        FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }
+        FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }}
       
     - name: Push APK to Releases
       uses: ncipollo/release-action@v1
