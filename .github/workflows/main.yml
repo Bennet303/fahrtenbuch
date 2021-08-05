@@ -1,4 +1,4 @@
-name: Flutter CI
+name: Build & Release
 
 # This workflow is triggered on pushes to the repository.
 
@@ -37,13 +37,21 @@ jobs:
     - run: flutter analyze .
     
     # Run widget tests for our flutter project.
-    #- run: flutter test
+    - run: flutter test
     
     # Build apk.
-    - run: flutter build apk
-    
-    # Upload generated apk to the artifacts.
-    - uses: actions/upload-artifact@v1
+    - name: Build 
+      run: |
+        mkdir $HOME/private
+        gpg --quiet --batch --yes --decrypt --passphrase="$FIREBASE_SECRET" \
+        --output $HOME/private/services.tar services.tar.gpg
+        tar xvf $HOME/private/services.tar
+        flutter build apk --split-per-abi
+      env:
+        FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }}
+      
+    - name: Push APK to Releases
+      uses: ncipollo/release-action@v1
       with:
-        name: release-apk
-        path: build/app/outputs/apk/release/app-release.apk
+        artifacts: "build/app/outputs/apk/release/*.apk"
+        token: ${{ secrets.TOKEN }}
