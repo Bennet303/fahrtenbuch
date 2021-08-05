@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:fahrtenbuch/features/trips/data/datasources/picture.data.source.dart';
+import 'package:fahrtenbuch/features/trips/data/datasources/picture/picture.data.source.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ImagePickerPictureDataSource extends PictureDataSource {

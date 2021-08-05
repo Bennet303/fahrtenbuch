@@ -29,6 +29,7 @@ class _AddTripPageState extends State<AddTripPage> {
         child: SlidingUpPanel(
           minHeight: 40,
           maxHeight: 300,
+          defaultPanelState: PanelState.OPEN,
           borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
           panel: InputPanel(),
           body: FahrtDialog(),
@@ -51,6 +52,8 @@ class _FahrtDialogState extends State<FahrtDialog> {
   final TextEditingController kmAbsoluteController = TextEditingController();
 
   final TextEditingController kmTripController = TextEditingController();
+
+  final TextEditingController locationController = TextEditingController();
 
   TextEditingController dateController =
       TextEditingController(text: DateTime.now().toString());
@@ -75,8 +78,12 @@ class _FahrtDialogState extends State<FahrtDialog> {
               this.dateController = TextEditingController(
                   text: state.trip.dateAndTime.toString());
             });
-            // String newDateString = state.trip.dateAndTime.toString();
-            // dateController.text = newDateString;
+          }
+
+          if (state.trip.location != null) {
+            setState(() {
+              this.locationController.text = state.trip.location!;
+            });
           }
         }
       },
@@ -96,7 +103,9 @@ class _FahrtDialogState extends State<FahrtDialog> {
               TripInputField(
                 icon: Icons.location_on,
                 hint: "Fahrtkilometer",
+                postfix: 'km',
                 controller: kmTripController,
+                textInputType: TextInputType.number,
                 validator: (val) {
                   if (val == null || val.isEmpty)
                     return "Bitte einen Wert eintragen";
@@ -106,7 +115,20 @@ class _FahrtDialogState extends State<FahrtDialog> {
               TripInputField(
                 icon: Icons.directions_car,
                 hint: "Kilometerstand",
+                postfix: 'km',
                 controller: kmAbsoluteController,
+                textInputType: TextInputType.number,
+                validator: (val) {
+                  if (val == null || val.isEmpty)
+                    return "Bitte einen Wert eintragen";
+                  return null;
+                },
+              ),
+              TripInputField(
+                icon: Icons.location_city,
+                hint: "Ort",
+                controller: locationController,
+                textInputType: TextInputType.text,
                 validator: (val) {
                   if (val == null || val.isEmpty)
                     return "Bitte einen Wert eintragen";
@@ -164,6 +186,7 @@ class _FahrtDialogState extends State<FahrtDialog> {
             .parse(kmTripController.value.text.trim())
             .toDouble(),
         dateAndTime: DateTime.tryParse(dateController.value.text),
+        location: locationController.value.text.trim(),
       );
       BlocProvider.of<TripsBloc>(context).add(AddTrip(trip));
       Navigator.of(context).pop();

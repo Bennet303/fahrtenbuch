@@ -1,6 +1,6 @@
 import 'package:fahrtenbuch/features/trips/presentation/bloc/bloc.dart';
-import 'package:fahrtenbuch/widgets/draggable.indicator.dart';
-import 'package:fahrtenbuch/widgets/generation.option.dart';
+import 'package:fahrtenbuch/core/widgets/draggable.indicator.dart';
+import 'package:fahrtenbuch/features/trips/presentation/widgets/generation.option.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

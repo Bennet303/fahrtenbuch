@@ -12,6 +12,7 @@ class TripHiveModel extends Trip {
       ..dateAndTime = trip.dateAndTime
       ..id = trip.id
       ..kmAbsolute = trip.kmAbsolute
+      ..location = trip.location
       ..kmTrip = trip.kmTrip;
   }
 
@@ -30,4 +31,8 @@ class TripHiveModel extends Trip {
   @override
   @HiveField(3)
   int? kmAbsolute;
+
+  @override
+  @HiveField(4)
+  String? location;
 }

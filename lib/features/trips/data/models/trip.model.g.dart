@@ -20,13 +20,14 @@ class TripHiveModelAdapter extends TypeAdapter<TripHiveModel> {
       ..id = fields[0] as String
       ..dateAndTime = fields[1] as DateTime?
       ..kmTrip = fields[2] as double?
-      ..kmAbsolute = fields[3] as int?;
+      ..kmAbsolute = fields[3] as int?
+      ..location = fields[4] as String?;
   }
 
   @override
   void write(BinaryWriter writer, TripHiveModel obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -34,7 +35,9 @@ class TripHiveModelAdapter extends TypeAdapter<TripHiveModel> {
       ..writeByte(2)
       ..write(obj.kmTrip)
       ..writeByte(3)
-      ..write(obj.kmAbsolute);
+      ..write(obj.kmAbsolute)
+      ..writeByte(4)
+      ..write(obj.location);
   }
 
   @override
