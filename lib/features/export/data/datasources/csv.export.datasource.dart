@@ -8,6 +8,22 @@ import 'package:path_provider/path_provider.dart';
 class CsvExportDataSource extends ExportDataSource {
   @override
   Future<void> export(String path, List<TripExportModel> trips) async {
+    String csv = convertTripsToCSV(trips);
+    File file = File(await getExportPath(path));
+    file.writeAsString(csv);
+  }
+
+  Future<String> getExportPath(String fileName) async {
+    final directory = await getExternalStorageDirectory();
+
+    if (directory == null) {
+      throw Exception('No export directory provided');
+    }
+
+    return directory.path + '/' + fileName + '.csv';
+  }
+
+  String convertTripsToCSV(List<TripExportModel> trips) {
     List<List<dynamic>> tripExport = trips.map((trip) => trip.toCSV()).toList();
     List<dynamic> header = [
       'Datum',
@@ -17,16 +33,6 @@ class CsvExportDataSource extends ExportDataSource {
       'Ort'
     ];
     tripExport.insert(0, header);
-    String csv =
-        const ListToCsvConverter(fieldDelimiter: ';').convert(tripExport);
-    final directory = await getExternalStorageDirectory();
-
-    if (directory == null) {
-      throw Exception('No export directory provided');
-    }
-
-    final String exportPath = directory.path + '/' + path + '.csv';
-    File file = File(exportPath);
-    file.writeAsString(csv);
+    return const ListToCsvConverter(fieldDelimiter: ';').convert(tripExport);
   }
 }
