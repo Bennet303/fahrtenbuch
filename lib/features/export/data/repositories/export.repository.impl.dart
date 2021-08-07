@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:fahrtenbuch/core/error/export.failure.dart';
 import 'package:fahrtenbuch/core/error/failure.dart';
 import 'package:fahrtenbuch/features/export/data/datasources/export.datasource.dart';
 import 'package:fahrtenbuch/features/export/data/models/trip.export.model.dart';

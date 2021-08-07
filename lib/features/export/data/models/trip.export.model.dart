@@ -1,6 +1,7 @@
 import 'package:fahrtenbuch/features/trips/domain/entities/trip.dart';
 import 'package:intl/intl.dart';
 
+//ignore: must_be_immutable
 class TripExportModel extends Trip {
   TripExportModel(DateTime dateTime, String id, int kmAbsolute, double kmTrip,
       String location) {
