@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:uuid/uuid.dart';
 
+//ignore: must_be_immutable
 class Trip extends Equatable {
   late String id;
   DateTime? dateAndTime;
