@@ -18,6 +18,7 @@ bin/
 gen/
 out/
 release/
+coverage/
 
 # Gradle files
 .gradle/
