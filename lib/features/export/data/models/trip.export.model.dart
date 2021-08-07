@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 //ignore: must_be_immutable
 class TripExportModel extends Trip {
   TripExportModel(DateTime dateTime, String id, int kmAbsolute, double kmTrip,
-      String location) {
+      String? location) {
     this.dateAndTime = dateTime;
     this.id = id;
     this.kmAbsolute = kmAbsolute;
@@ -14,7 +14,7 @@ class TripExportModel extends Trip {
 
   factory TripExportModel.fromTrip(Trip trip) {
     final res = new TripExportModel(trip.dateAndTime!, trip.id,
-        trip.kmAbsolute!, trip.kmTrip!, trip.location!);
+        trip.kmAbsolute!, trip.kmTrip!, trip.location);
     return res;
   }
 
