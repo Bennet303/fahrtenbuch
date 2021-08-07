@@ -17,6 +17,6 @@ main() {
   });
 
   test('should return the correct location for given coordinates', () async {
-    var location = await geocodingDatasource.getLocationName(coords);
+    await geocodingDatasource.getLocationName(coords);
   });
 }

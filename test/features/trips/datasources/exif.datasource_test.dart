@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:fahrtenbuch/features/trips/data/datasources/image-metadata/exif.datasource.dart';
