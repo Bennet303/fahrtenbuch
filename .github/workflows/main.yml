@@ -28,13 +28,13 @@ jobs:
         # flutter-version: '1.12.x' # you can also specify exact version of flutter
         
     - name: Decode android/keystore.jks
-      run: echo "${{ secrets.KEYSTORE_JKS_PROD }}" | base64 --decode > android/keystore.jks
+      run: echo "${{ secrets.KEYSTORE_JKS_PROD }}" | base64 --decode > android/upload-keystore.jks
 
     - name: Decode android/key.properties
       run: echo "${{ secrets.KEY_PROPERTIES_PROD }}" | base64 --decode > android/key.properties
         
     - name: Get tag name
-      uses: olegtarasov/get-tag@v2 # that generate $GIT_TAG_NAME env
+      uses: olegtarasov/get-tag@v2.1 # that generate $GIT_TAG_NAME env
       id: tagName
       with:
         tagRegex: 'v([0-9]+.[0-9]+.[0-9]+\+[0-9]+)' # Optional. Returns specified group text as tag name. Full tag string is returned if regex is not defined.
@@ -42,7 +42,7 @@ jobs:
 
     - name: Replace YAML version with tag version
       run: |
-        sed -i 's/99.99.99+99/'$GIT_TAG_NAME'/g' pubspec.yaml|
+        sed -E -i 's/.*version.*/version: '$GIT_TAG_NAME'/g' pubspec.yaml|
         echo "Tag used version:"$GIT_TAG_NAME
     
     # Get flutter dependencies.
