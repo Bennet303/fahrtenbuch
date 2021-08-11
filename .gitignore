@@ -19,6 +19,7 @@ gen/
 out/
 release/
 coverage/
+pubspec.lock
 
 # Gradle files
 .gradle/
