@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:fahrtenbuch/core/dependency.injector.dart';
 import 'package:fahrtenbuch/features/trips/domain/entities/trip.dart';
 import 'package:fahrtenbuch/features/trips/presentation/bloc/bloc.dart';
@@ -7,6 +9,7 @@ import 'package:fahrtenbuch/features/trips/presentation/widgets/trip.input.field
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:intl/intl.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
@@ -16,6 +19,27 @@ class AddTripPage extends StatefulWidget {
 }
 
 class _AddTripPageState extends State<AddTripPage> {
+  final panelController = PanelController(); 
+  late StreamSubscription<bool> keyboardSubscription;
+
+  @override
+  void initState() {
+    super.initState();
+    var keyboardVisibilityController = KeyboardVisibilityController();
+
+    keyboardSubscription = keyboardVisibilityController.onChange.listen((bool visible) {
+      if (visible) {
+        panelController.close();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    keyboardSubscription.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,9 +48,11 @@ class _AddTripPageState extends State<AddTripPage> {
         title: Text("Fahrt hinzufügen", style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.white,
       ),
+      resizeToAvoidBottomInset: true,
       body: BlocProvider<PictureBloc>(
         create: (context) => injector.get<PictureBloc>(),
         child: SlidingUpPanel(
+          controller: panelController,
           minHeight: 40,
           maxHeight: 300,
           defaultPanelState: PanelState.OPEN,
