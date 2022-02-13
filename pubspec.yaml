@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter  
 
   #cupertino_icons: ^0.1.2
-  google_ml_kit: ^0.6.0
+  google_ml_kit: ^0.7.3
   #firebase_ml_vision: ^0.9.10 #^0.12.0
   firebase_core: ^1.4.0
   csv: ^5.0.0
@@ -21,7 +21,7 @@ dependencies:
   sliding_up_panel: ^2.0.0+1
   intl: ^0.17.0-nullsafety.2
   date_time_picker: ^2.0.0
-  flutter_bloc: ^7.0.1
+  flutter_bloc: ^8.0.1
   equatable: ^2.0.3
   dartz: ^0.10.0-nullsafety.0
   uuid: ^3.0.4
