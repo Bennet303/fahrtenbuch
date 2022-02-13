@@ -1,7 +1,7 @@
 name: fahrtenbuch
 description: A new Flutter project.
 
-version: 1.1.7
+version: 1.1.10
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -18,6 +18,7 @@ dependencies:
   firebase_core: ^1.4.0
   csv: ^5.0.0
   path_provider: ^2.0.2
+  flutter_keyboard_visibility: ^5.1.1
   sliding_up_panel: ^2.0.0+1
   intl: ^0.17.0-nullsafety.2
   date_time_picker: ^2.0.0
