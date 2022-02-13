@@ -5,8 +5,9 @@ import 'package:geocoding/geocoding.dart';
 class GeocodingDatasource extends LocationDatasource {
   @override
   Future<String> getLocationName(CoordinatesModel coords) async {
+    
     List<Placemark> placemarks =
-        await placemarkFromCoordinates(coords.latitude, coords.longitude);
+        await placemarkFromCoordinates(coords.latitude, coords.longitude, localeIdentifier: 'en');
 
     final cityName = placemarks.first.locality;
 

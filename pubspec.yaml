@@ -22,6 +22,7 @@ dependencies:
   intl: ^0.17.0-nullsafety.2
   date_time_picker: ^2.0.0
   flutter_bloc: ^7.0.1
+  geocode: 1.0.1
   equatable: ^2.0.3
   dartz: ^0.10.0-nullsafety.0
   uuid: ^3.0.4
