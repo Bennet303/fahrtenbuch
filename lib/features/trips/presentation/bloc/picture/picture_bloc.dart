@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:fahrtenbuch/features/trips/domain/domain.dart';
-import 'package:fahrtenbuch/features/trips/domain/entities/trip.dart';
 
 part 'picture_event.dart';
 part 'picture_state.dart';

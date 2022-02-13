@@ -1,7 +1,6 @@
 import 'package:fahrtenbuch/features/trips/data/datasources/location/location.datasource.dart';
 import 'package:fahrtenbuch/features/trips/data/models/coordinates.model.dart';
 import 'package:geocode/geocode.dart';
-import 'package:geocoding/geocoding.dart';
 
 class GeocodeDatasource extends LocationDatasource {
   @override
