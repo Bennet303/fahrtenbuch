@@ -19,7 +19,7 @@ class AddTripPage extends StatefulWidget {
 }
 
 class _AddTripPageState extends State<AddTripPage> {
-  final panelController = PanelController(); 
+  final panelController = PanelController();
   late StreamSubscription<bool> keyboardSubscription;
 
   @override
@@ -27,7 +27,8 @@ class _AddTripPageState extends State<AddTripPage> {
     super.initState();
     var keyboardVisibilityController = KeyboardVisibilityController();
 
-    keyboardSubscription = keyboardVisibilityController.onChange.listen((bool visible) {
+    keyboardSubscription =
+        keyboardVisibilityController.onChange.listen((bool visible) {
       if (visible) {
         panelController.close();
       }
