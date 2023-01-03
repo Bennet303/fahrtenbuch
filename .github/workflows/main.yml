@@ -63,12 +63,13 @@ jobs:
           gpg --quiet --batch --yes --decrypt --passphrase="$FIREBASE_SECRET" \
           --output $HOME/private/services.tar services.tar.gpg
           tar xvf $HOME/private/services.tar
-          flutter build apk --split-per-abi
+          flutter build apk --split-per-abi --dart-define GEOCODING_KEY="$GEOCODING_SECRET"
         env:
           FIREBASE_SECRET: ${{ secrets.FIREBASE_SECRET }}
+          GEOCODING_SECRET: ${{ secrets.GEOCODING_API_KEY }}
 
       - name: Push APK to Releases
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/apk/release/*.apk"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.TOKEN }}

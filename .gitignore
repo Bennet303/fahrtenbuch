@@ -143,6 +143,7 @@ output.json
 **/ios/Flutter/flutter_assets/
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
+**/ios/FLUTTER/flutter_export_environment.sh
 
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3
@@ -260,3 +261,5 @@ fabric.properties
 !/gradle/wrapper/gradle-wrapper.jar
 
 # End of https://www.gitignore.io/api/android,flutter,androidstudio
+
+.vscode/launch.json

@@ -1,6 +1,4 @@
 PODS:
-  - downloads_path_provider (0.0.1):
-    - Flutter
   - Firebase/CoreOnly (8.3.0):
     - FirebaseCore (= 8.3.0)
   - firebase_core (1.4.0):
@@ -15,19 +13,28 @@ PODS:
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/Logger (~> 7.4)
     - nanopb (~> 2.30908.0)
+  - FirebaseInstallations (8.8.0):
+    - FirebaseCore (~> 8.0)
+    - GoogleUtilities/Environment (~> 7.4)
+    - GoogleUtilities/UserDefaults (~> 7.4)
+    - PromisesObjC (< 3.0, >= 1.2)
   - Flutter (1.0.0)
+  - flutter_keyboard_visibility (0.0.1):
+    - Flutter
   - geocoding (1.0.5):
     - Flutter
   - google_ml_kit (0.6.0):
     - Flutter
-    - GoogleMLKit/BarcodeScanning
-    - GoogleMLKit/DigitalInkRecognition
-    - GoogleMLKit/FaceDetection
-    - GoogleMLKit/ImageLabeling
-    - GoogleMLKit/ImageLabelingCustom
-    - GoogleMLKit/PoseDetection
-    - GoogleMLKit/PoseDetectionAccurate
-    - GoogleMLKit/TextRecognition
+    - GoogleMLKit/BarcodeScanning (~> 2.2.0)
+    - GoogleMLKit/DigitalInkRecognition (~> 2.2.0)
+    - GoogleMLKit/FaceDetection (~> 2.2.0)
+    - GoogleMLKit/ImageLabeling (~> 2.2.0)
+    - GoogleMLKit/ImageLabelingCustom (~> 2.2.0)
+    - GoogleMLKit/LanguageID (~> 2.2.0)
+    - GoogleMLKit/LinkFirebase (~> 2.2.0)
+    - GoogleMLKit/PoseDetection (~> 2.2.0)
+    - GoogleMLKit/PoseDetectionAccurate (~> 2.2.0)
+    - GoogleMLKit/TextRecognition (~> 2.2.0)
   - GoogleDataTransport (9.1.0):
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
@@ -47,6 +54,12 @@ PODS:
   - GoogleMLKit/ImageLabelingCustom (2.2.0):
     - GoogleMLKit/MLKitCore
     - MLKitImageLabelingCustom (~> 1.3.0)
+  - GoogleMLKit/LanguageID (2.2.0):
+    - GoogleMLKit/MLKitCore
+    - MLKitLanguageID (~> 1.3.0)
+  - GoogleMLKit/LinkFirebase (2.2.0):
+    - GoogleMLKit/MLKitCore
+    - MLKitLinkFirebase (~> 1.3.0)
   - GoogleMLKit/MLKitCore (2.2.0):
     - MLKitCommon (~> 3.0.0)
   - GoogleMLKit/PoseDetection (2.2.0):
@@ -70,6 +83,8 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.3.1)
     - "GoogleToolboxForMac/NSString+URLArguments (= 2.3.1)"
   - "GoogleToolboxForMac/NSString+URLArguments (2.3.1)"
+  - GoogleToolboxForMac/StringEncoding (2.3.1):
+    - GoogleToolboxForMac/Defines (= 2.3.1)
   - GoogleUtilities/Environment (7.5.0):
     - PromisesObjC (< 3.0, >= 1.2)
   - GoogleUtilities/Logger (7.5.0):
@@ -114,8 +129,23 @@ PODS:
     - MLKitImageLabelingCommon (~> 1.3)
     - MLKitVision (~> 1.3)
     - MLKitVisionKit (~> 2.2)
+  - MLKitLanguageID (1.3.0):
+    - MLKitNaturalLanguage (~> 1.3)
+  - MLKitLinkFirebase (1.3.0):
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+    - MLKitCommon (~> 3.0)
   - MLKitMDD (1.3.0):
     - MLKitCommon (~> 3.0)
+  - MLKitNaturalLanguage (1.3.0):
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
+    - GoogleToolboxForMac/StringEncoding (~> 2.1)
+    - GTMSessionFetcher/Core (~> 1.1)
+    - MLKitCommon (~> 3.0)
+    - Protobuf (~> 3.12)
   - MLKitObjectDetectionCommon (1.3.0):
     - MLKitCommon (~> 3.0)
     - MLKitVision (~> 1.3)
@@ -160,9 +190,9 @@ PODS:
   - SSZipArchive (2.4.2)
 
 DEPENDENCIES:
-  - downloads_path_provider (from `.symlinks/plugins/downloads_path_provider/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `Flutter`)
+  - flutter_keyboard_visibility (from `.symlinks/plugins/flutter_keyboard_visibility/ios`)
   - geocoding (from `.symlinks/plugins/geocoding/ios`)
   - google_ml_kit (from `.symlinks/plugins/google_ml_kit/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
@@ -173,6 +203,7 @@ SPEC REPOS:
     - Firebase
     - FirebaseCore
     - FirebaseCoreDiagnostics
+    - FirebaseInstallations
     - GoogleDataTransport
     - GoogleMLKit
     - GoogleToolboxForMac
@@ -187,7 +218,10 @@ SPEC REPOS:
     - MLKitImageLabeling
     - MLKitImageLabelingCommon
     - MLKitImageLabelingCustom
+    - MLKitLanguageID
+    - MLKitLinkFirebase
     - MLKitMDD
+    - MLKitNaturalLanguage
     - MLKitObjectDetectionCommon
     - MLKitPoseDetection
     - MLKitPoseDetectionAccurate
@@ -202,12 +236,12 @@ SPEC REPOS:
     - SSZipArchive
 
 EXTERNAL SOURCES:
-  downloads_path_provider:
-    :path: ".symlinks/plugins/downloads_path_provider/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
   Flutter:
     :path: Flutter
+  flutter_keyboard_visibility:
+    :path: ".symlinks/plugins/flutter_keyboard_visibility/ios"
   geocoding:
     :path: ".symlinks/plugins/geocoding/ios"
   google_ml_kit:
@@ -218,14 +252,15 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/path_provider/ios"
 
 SPEC CHECKSUMS:
-  downloads_path_provider: fe0d06888d4b8c055a59edbc2f51f03e63cb0e28
   Firebase: 817b9171d0d51dccc458b94a5e8edff6b1dd323d
   firebase_core: 72374607c8c6f5a0adc0559e5c5bf57deda975e3
   FirebaseCore: a6dba751680d7033b9d3831e1cfc95ead0605118
   FirebaseCoreDiagnostics: cad03be1904b975f845e632f2720c3337da27faf
-  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  FirebaseInstallations: 2563cb18a723ef9c6ef18318a49519b75dce613c
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  flutter_keyboard_visibility: 0339d06371254c3eb25eeb90ba8d17dca8f9c069
   geocoding: 32cfcdb16d38d907caaba65e2e42ad10d38bee58
-  google_ml_kit: 3e25499de151048da453504d2b676cfd1c6c6bd0
+  google_ml_kit: a85eefb9ea6156b27ee2fba2b71e461e7b26a4f6
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
   GoogleMLKit: 85ffdc9641d05311c76dbba5bbf93059087be12f
   GoogleToolboxForMac: 471e0c05d39506e50e6398f46fa9a12ae0efeff9
@@ -241,7 +276,10 @@ SPEC CHECKSUMS:
   MLKitImageLabeling: fc44a4f90b1cf16bcb62c043d477c052ba7539ca
   MLKitImageLabelingCommon: fbe695a04fb236555e6b7e69e7def153a04324c1
   MLKitImageLabelingCustom: 83e609e6b7dd8a16dc8790ef325bab1372d1d91d
+  MLKitLanguageID: 3848cf59a1693e2076ba65b37da261c674f97170
+  MLKitLinkFirebase: ae5bd6996d0a1a3d3e0bb4c634b594101c07d094
   MLKitMDD: 37b4fbb5fd45809e646fca676945d6a8479ae66e
+  MLKitNaturalLanguage: 2a0295232578461ec25bf5933e45570c3b651d27
   MLKitObjectDetectionCommon: 6abf300c61cd781ee3abc8abea8a3f8baca886dc
   MLKitPoseDetection: bbc263ae4e961e83c9350abe919cff183797e687
   MLKitPoseDetectionAccurate: c87162574669a84b89fdd0279a1f0722faa99b6e
@@ -256,6 +294,6 @@ SPEC CHECKSUMS:
   Protobuf: 7327d4444215b5f18e560a97f879ff5503c4581c
   SSZipArchive: e7b4f3d9e780c2acc1764cd88fbf2de28f26e5b2
 
-PODFILE CHECKSUM: 4e8f8b2be68aeea4c0d5beb6ff1e79fface1d048
+PODFILE CHECKSUM: afcec358f93eab0742ad2f52bde111b8350ed771
 
 COCOAPODS: 1.10.1

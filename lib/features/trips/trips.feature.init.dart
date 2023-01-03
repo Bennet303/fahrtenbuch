@@ -1,10 +1,10 @@
 import 'package:fahrtenbuch/core/dependency.injector.dart';
+import 'package:fahrtenbuch/features/trips/data/datasources/location/geocoding.rest.datasource.dart';
 import 'package:fahrtenbuch/features/trips/domain/usecases/usecases.dart';
 import 'package:fahrtenbuch/features/trips/presentation/bloc/bloc.dart';
 
 import 'data/datasources/image-metadata/exif.datasource.dart';
 import 'data/datasources/image-metadata/image.metadata.datasource.dart';
-import 'data/datasources/location/geocoding.datasource.dart';
 import 'data/datasources/location/location.datasource.dart';
 import 'data/datasources/ocr/firebase.ocr.data.source.dart';
 import 'data/datasources/ocr/ocr.data.source.dart';
@@ -51,8 +51,8 @@ tripsFeatureInit() {
       () => ImagePickerPictureDataSource());
   injector
       .registerLazySingleton<ImageMetadataDatasource>(() => ExifDatasource());
-  injector
-      .registerLazySingleton<LocationDatasource>(() => GeocodingDatasource());
+  injector.registerLazySingleton<LocationDatasource>(
+      () => GeocodingRestDataSource());
 
   ///* Feature: Trips
   //* Bloc
