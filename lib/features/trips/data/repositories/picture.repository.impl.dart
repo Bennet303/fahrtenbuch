@@ -30,6 +30,7 @@ class PictureRepositoryImpl extends PictureRepository {
       Trip trip = await _getTripFromImage(image);
       return Right(trip);
     } catch (e) {
+      print(e);
       return Left(PictureFailure(e.toString()));
     }
   }
@@ -41,6 +42,7 @@ class PictureRepositoryImpl extends PictureRepository {
       Trip trip = await _getTripFromImage(image);
       return Right(trip);
     } catch (e) {
+      print(e);
       return Left(PictureFailure(e.toString()));
     }
   }

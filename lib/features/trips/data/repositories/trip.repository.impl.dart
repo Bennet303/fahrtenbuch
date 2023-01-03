@@ -1,9 +1,9 @@
+import 'package:dartz/dartz.dart';
+import 'package:fahrtenbuch/core/error/failure.dart';
 import 'package:fahrtenbuch/core/error/trip.failure.dart';
 import 'package:fahrtenbuch/features/trips/data/datasources/trip-db/trip.db.data.source.dart';
 import 'package:fahrtenbuch/features/trips/data/models/trip.model.dart';
 import 'package:fahrtenbuch/features/trips/domain/entities/trip.dart';
-import 'package:fahrtenbuch/core/error/failure.dart';
-import 'package:dartz/dartz.dart';
 import 'package:fahrtenbuch/features/trips/domain/repositories/trip.repository.dart';
 
 class TripRepositoryImpl extends TripRepository {
