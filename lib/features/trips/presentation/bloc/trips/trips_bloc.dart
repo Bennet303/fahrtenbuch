@@ -2,9 +2,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:fahrtenbuch/features/trips/domain/domain.dart';
-import 'package:fahrtenbuch/features/trips/domain/entities/trip.dart';
-import 'package:fahrtenbuch/features/trips/domain/usecases/add.trip.dart';
-import 'package:fahrtenbuch/features/trips/domain/usecases/get.trips.dart';
 part 'trips_event.dart';
 part 'trips_state.dart';
 

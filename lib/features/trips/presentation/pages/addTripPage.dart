@@ -6,7 +6,6 @@ import 'package:fahrtenbuch/features/trips/presentation/bloc/bloc.dart';
 import 'package:fahrtenbuch/features/trips/presentation/widgets/date.input.dart';
 import 'package:fahrtenbuch/features/trips/presentation/widgets/input.panel.dart';
 import 'package:fahrtenbuch/features/trips/presentation/widgets/trip.input.field.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -19,7 +18,7 @@ class AddTripPage extends StatefulWidget {
 }
 
 class _AddTripPageState extends State<AddTripPage> {
-  final panelController = PanelController(); 
+  final panelController = PanelController();
   late StreamSubscription<bool> keyboardSubscription;
 
   @override
@@ -27,7 +26,8 @@ class _AddTripPageState extends State<AddTripPage> {
     super.initState();
     var keyboardVisibilityController = KeyboardVisibilityController();
 
-    keyboardSubscription = keyboardVisibilityController.onChange.listen((bool visible) {
+    keyboardSubscription =
+        keyboardVisibilityController.onChange.listen((bool visible) {
       if (visible) {
         panelController.close();
       }
