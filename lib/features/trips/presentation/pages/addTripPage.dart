@@ -131,7 +131,7 @@ class _FahrtDialogState extends State<FahrtDialog> {
                 hint: "Fahrtkilometer",
                 postfix: 'km',
                 controller: kmTripController,
-                textInputType: TextInputType.number,
+                textInputType: TextInputType.numberWithOptions(decimal: true),
                 validator: (val) {
                   if (val == null || val.isEmpty)
                     return "Bitte einen Wert eintragen";
