@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:csv/csv.dart';
 import 'package:fahrtenbuch/features/export/data/datasources/export.datasource.dart';
 import 'package:fahrtenbuch/features/export/data/models/trip.export.model.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class CsvExportDataSource extends ExportDataSource {
   @override
@@ -13,14 +13,24 @@ class CsvExportDataSource extends ExportDataSource {
     file.writeAsString(csv);
   }
 
+  // Future<String> getExportPath(String fileName) async {
+  //   final directory = await getExternalStorageDirectory();
+
+  //   if (directory == null) {
+  //     throw Exception('No export directory provided');
+  //   }
+
+  //   return directory.path + '/' + fileName + '.csv';
+  // }
+
   Future<String> getExportPath(String fileName) async {
-    final directory = await getExternalStorageDirectory();
-
-    if (directory == null) {
-      throw Exception('No export directory provided');
+    PermissionHandler handler = PermissionHandler();
+    var status = await handler.checkPermissionStatus(PermissionGroup.storage);
+    if (status != PermissionStatus.granted) {
+      await handler.requestPermissions([PermissionGroup.storage]);
     }
-
-    return directory.path + '/' + fileName + '.csv';
+    Directory dir = Directory('/storage/emulated/0/Download');
+    return dir.path + '/' + fileName + '.csv';
   }
 
   String convertTripsToCSV(List<TripExportModel> trips) {
