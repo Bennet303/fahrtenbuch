@@ -19,7 +19,7 @@ class ExportRepositoryImpl extends ExportRepository {
     List<Trip> tripsToBeExported = (await tripDbDataSource.getAllTrips())
         .where((trip) =>
             trip.dateAndTime!.compareTo(from) >= 1 &&
-            trip.dateAndTime!.compareTo(to) <= 1)
+            trip.dateAndTime!.compareTo(to) <= 0)
         .toList();
 
     List<TripExportModel> tripExportModels = tripsToBeExported
