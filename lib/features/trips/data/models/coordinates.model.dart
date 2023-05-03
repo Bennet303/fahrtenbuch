@@ -3,4 +3,11 @@ class CoordinatesModel {
   final double longitude;
 
   CoordinatesModel(this.latitude, this.longitude);
+
+  Map<String, dynamic> toJson() {
+    return {
+      'latitude': latitude,
+      'longitude': longitude,
+    };
+  }
 }

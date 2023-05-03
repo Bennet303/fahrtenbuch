@@ -83,3 +83,5 @@ dependencies {
 //     implementation 'com.google.android.gms:play-services-vision-common:19.1.2'
 //     implementation 'com.google.android.gms:play-services-vision-image-label:18.1.0'
 }
+
+apply plugin: 'com.google.firebase.crashlytics'

@@ -1,4 +1,6 @@
 import 'package:fahrtenbuch/features/trips/presentation/bloc/bloc.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -13,6 +15,8 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(TripHiveModelAdapter());
   await Hive.openBox<TripHiveModel>('trips');
+  await Firebase.initializeApp();
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
   runApp(Application());
 }
 

@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
@@ -8,6 +9,8 @@ import 'package:fahrtenbuch/features/trips/data/datasources/location/location.da
 import 'package:fahrtenbuch/features/trips/data/datasources/ocr/ocr.data.source.dart';
 import 'package:fahrtenbuch/features/trips/data/datasources/picture/picture.data.source.dart';
 import 'package:fahrtenbuch/features/trips/domain/domain.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 
 class PictureRepositoryImpl extends PictureRepository {
@@ -48,11 +51,20 @@ class PictureRepositoryImpl extends PictureRepository {
   }
 
   Future<String?> _getLocation(File image) async {
+    var coords, location;
     try {
-      final coords = await imageMetadataDatasource.getCoordinates(image);
-      final location = await locationDatasource.getLocationName(coords);
+      coords = await imageMetadataDatasource.getCoordinates(image);
+      location = await locationDatasource.getLocationName(coords);
       return location;
-    } catch (e) {
+    } catch (e, stacktrace) {
+      await FirebaseCrashlytics.instance.recordError(e, stacktrace,
+          reason: 'Getting location from image failed.',
+          information: [
+            DiagnosticsNode.message(jsonEncode(coords)),
+            DiagnosticsNode.message(jsonEncode(location))
+          ]);
+      //FirebaseCrashlytics.instance.crash();
+      print(await FirebaseCrashlytics.instance.checkForUnsentReports());
       return null;
     }
   }
